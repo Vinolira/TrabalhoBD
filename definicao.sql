@@ -6,7 +6,7 @@ ALTER TABLE
     "cliente" ADD PRIMARY KEY("clienteid");
 CREATE TABLE "endereco"(
     "enderecoid" INTEGER NOT NULL,
-    "CEP" VARCHAR(255) NOT NULL
+    "CEP" VARCHAR(9) NOT NULL
 );
 ALTER TABLE
     "endereco" ADD PRIMARY KEY("enderecoid");
@@ -16,7 +16,6 @@ CREATE TABLE "cliente_endereco"(
     "clienteid" INTEGER NOT NULL,
     "enderecoid" INTEGER NOT NULL,
     "tipo" VARCHAR(255) NOT NULL,
-    "new_column" BIGINT NOT NULL
 );
 ALTER TABLE
     "cliente_endereco" ADD PRIMARY KEY("clienteid");
@@ -83,8 +82,8 @@ ALTER TABLE
     "produto_fornecedor" ADD PRIMARY KEY("fornecedor");
 CREATE TABLE "metodo_pagamento"(
     "metodopagamentoid" INTEGER NOT NULL,
-    "descricao" VARCHAR(255) NOT NULL,
     "metodopagamento" VARCHAR(255) NOT NULL
+    "descricao" VARCHAR(255) NOT NULL,
 );
 ALTER TABLE
     "metodo_pagamento" ADD PRIMARY KEY("metodopagamentoid");
@@ -125,10 +124,10 @@ ALTER TABLE
     "envio" ADD PRIMARY KEY("pedidoid");
 CREATE TABLE "dados_cartao"(
     "cartaoid" INTEGER NOT NULL,
-    "num" VARCHAR(255) NOT NULL,
+    "num" VARCHAR(16) NOT NULL,
     "nome" VARCHAR(255) NOT NULL,
-    "dt_validade" VARCHAR(255) NOT NULL,
-    "cvv" VARCHAR(255) NOT NULL,
+    "dt_validade" VARCHAR(5) NOT NULL,
+    "cvv" VARCHAR(3) NOT NULL,
     "pagamentoid" INTEGER NOT NULL
 );
 ALTER TABLE
@@ -138,8 +137,8 @@ ALTER TABLE
 CREATE TABLE "CEP"(
     "cepnum" INTEGER NOT NULL,
     "estado" VARCHAR(255) NOT NULL,
-    "cidadebigint" VARCHAR(255) NOT NULL,
-    "ruabigint" VARCHAR(255) NOT NULL
+    "cidade" VARCHAR(255) NOT NULL,
+    "rua" VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     "CEP" ADD PRIMARY KEY("cepnum");
